@@ -17,7 +17,7 @@ public class baseClass extends pageObject {
 
 		driver.get(url);
 		Thread.sleep(3000);
-	}
+	}  
 
 	public void loginSuccess(WebDriver driver, String url, String Email, String password) throws Exception {
 		try {
