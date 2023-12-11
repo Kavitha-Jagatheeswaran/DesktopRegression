@@ -133,7 +133,7 @@ public class testRun extends pageObject {
 		
 System.out.println("Test completed");
 	}
-	@AfterSuite
+	@AfterSuite 
 	public void quite1()  {
 		System.out.println("Quit");	}
 
