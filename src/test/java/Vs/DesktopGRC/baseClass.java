@@ -28,7 +28,7 @@ public class baseClass extends pageObject {
 		qeOTP.click();
 		qeOTP.sendKeys(password);
 		Thread.sleep(3000);   
-		qeloginCTA.click();
+		qeloginCTA.click();      
 		Thread.sleep(3000);
 		System.out.println("Logged-In successfully");
 		test.log(Status.PASS, "Logged-In successfully", MediaEntityBuilder
