@@ -27,7 +27,7 @@ public class testMessages extends pageObject {
 			messagesOption.click();
 			Thread.sleep(3000);
 			searchMail.click();
-			searchMail.sendKeys("Online Company Registration");
+			searchMail.sendKeys("Company Registration");
 			Thread.sleep(3000);
 			System.out.println("Message searched successfully");
 			test.log(Status.PASS, "Message searched successfully",
@@ -57,7 +57,7 @@ public class testMessages extends pageObject {
 			attachFile.click();
 
 			// Set the file path to the clipboard
-			String filePath = "\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\sample-aadhaar-card.png";
+			String filePath = "\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\sample-aadhaar-card.png";
 			StringSelection stringSelection = new StringSelection(filePath);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 			clipboard.setContents(stringSelection, null);

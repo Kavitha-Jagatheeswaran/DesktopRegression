@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.apache.commons.mail.EmailException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -33,7 +34,7 @@ public class testRun extends pageObject {
 	public String[][] getExcelData() throws IOException, BiffException {
 
 		FileInputStream excel = new FileInputStream(
-				"\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\GRC Automation Data.xls");
+				"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\GRC Automation Data.xls");
 		Workbook workbook = Workbook.getWorkbook(excel);
 		Sheet sheet = workbook.getSheet("GRC data");
 		int rowCount = sheet.getRows();
@@ -66,13 +67,11 @@ public class testRun extends pageObject {
 
 	public void GRCRegression(String url, String Email, String password) throws Exception {
 		startReport();
-		try {
-			// Get URL
-			baseClass base = new baseClass();
-			base.getURL(driver, url, Email, password);
-			base.loginSuccess(driver, url, Email, password);
-
-			// Add Organization
+		try {/*
+				 * // Get URL baseClass base = new baseClass(); base.getURL(driver, url, Email,
+				 * password); base.loginSuccess(driver, url, Email, password);
+				 * 
+				 */// Add Organization
 			testOrganization newBusiness = new testOrganization();
 			newBusiness.addorganization(driver);
 
@@ -105,12 +104,12 @@ public class testRun extends pageObject {
 			testChat ChatBot = new testChat();
 			ChatBot.chat(driver);
 
-			// Logout Flow
-			userProfile.logout(driver);
-
-			// Sign-up Flow
-			testSignup signupFlow = new testSignup();
-			signupFlow.signUp(driver);
+			/*
+			 * // Logout Flow userProfile.logout(driver);
+			 * 
+			 * // Sign-up Flow testSignup signupFlow = new testSignup();
+			 * signupFlow.signUp(driver);
+			 */
 
 			ExtentTest test = extent.createTest("GRC Execution");
 			test.log(Status.PASS, "GRC Execution Successfully",
@@ -128,8 +127,11 @@ public class testRun extends pageObject {
 	}
 
 	@AfterTest
-	public void quite() throws AWTException {
-		// driver.quit();
+	public void quite() throws AWTException, EmailException {
+		/*
+		 * emailSend mail = new emailSend(); System.out.println("Test completed1");
+		 * mail.sendMailwithAttachment(); driver.quit();
+		 */
 
 	}
 

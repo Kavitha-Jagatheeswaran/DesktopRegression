@@ -291,11 +291,11 @@ public class pageObject {
 
 	public void startReport() {
 		LocalDateTime currentDateTime = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmm");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyy");
 		
 		String reportFilename = "Extentreport " + currentDateTime.format(formatter);
 		htmlReporter = new ExtentSparkReporter(
-				"\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Report\\"+ reportFilename +".html");
+				"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Report\\"+ reportFilename +".html");
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
@@ -313,7 +313,7 @@ public class pageObject {
 			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 			// Define a file path to save the screenshot
-			String screenshotPath = "\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Screenshot\\"
+			String screenshotPath = "\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Screenshot\\"
 					+ ssFilename + ".png";
 
 			try {

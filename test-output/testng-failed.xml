@@ -6,7 +6,7 @@
       <class name="Vs.DesktopGRC.testRun">
         <methods>
           <include name="openBrowser"/>
-          <include name="GRCRegression" invocation-numbers="0"/>
+          <include name="GRCRegression"/>
           <include name="quite"/>
         </methods>
       </class> <!-- Vs.DesktopGRC.testRun -->
