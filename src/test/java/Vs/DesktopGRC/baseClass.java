@@ -27,7 +27,7 @@ public class baseClass extends pageObject {
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		qeOTP.click();
 		qeOTP.sendKeys(password);
-		Thread.sleep(3000);
+		Thread.sleep(3000);   
 		qeloginCTA.click();
 		Thread.sleep(3000);
 		System.out.println("Logged-In successfully");
