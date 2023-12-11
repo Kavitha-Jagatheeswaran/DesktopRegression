@@ -7,7 +7,9 @@ import java.io.IOException;
 import org.apache.commons.mail.EmailException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -29,7 +31,7 @@ public class testRun extends pageObject {
 		data = getExcelData();
 		return data;
 	}
-
+	@BeforeSuite
 //To fetch the data from the excel sheet
 	public String[][] getExcelData() throws IOException, BiffException {
 
@@ -128,11 +130,11 @@ public class testRun extends pageObject {
 
 	@AfterTest
 	public void quite() throws AWTException, EmailException {
-		/*
-		 * emailSend mail = new emailSend(); System.out.println("Test completed1");
-		 * mail.sendMailwithAttachment(); driver.quit();
-		 */
-
+		
+System.out.println("Test completed");
 	}
+	@AfterSuite
+	public void quite1()  {
+		System.out.println("Quit");	}
 
 }
