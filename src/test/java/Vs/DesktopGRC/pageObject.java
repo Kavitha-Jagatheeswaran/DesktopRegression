@@ -295,7 +295,7 @@ public class pageObject {
 		
 		String reportFilename = "Extentreport " + currentDateTime.format(formatter);
 		htmlReporter = new ExtentSparkReporter(
-				"C:\\Users\\admin\\Downloads\\eclipse-workspace\\DesktopGRC\\test-output\\Report\\"+ reportFilename +".html");
+				"\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Report\\"+ reportFilename +".html");
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
@@ -313,7 +313,7 @@ public class pageObject {
 			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 			// Define a file path to save the screenshot
-			String screenshotPath = "C:\\Users\\admin\\Downloads\\eclipse-workspace\\DesktopGRC\\test-output\\Screenshot\\"
+			String screenshotPath = "\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Screenshot\\"
 					+ ssFilename + ".png";
 
 			try {

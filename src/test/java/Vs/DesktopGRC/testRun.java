@@ -33,12 +33,12 @@ public class testRun extends pageObject {
 	public String[][] getExcelData() throws IOException, BiffException {
 
 		FileInputStream excel = new FileInputStream(
-				"C:\\Users\\admin\\Downloads\\eclipse-workspace\\DesktopGRC\\test-input\\GRC Automation Data.xls");
+				"\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\GRC Automation Data.xls");
 		Workbook workbook = Workbook.getWorkbook(excel);
 		Sheet sheet = workbook.getSheet("GRC data");
 		int rowCount = sheet.getRows();
 		int columnCount = sheet.getColumns();
-
+ 
 		String testData[][] = new String[rowCount][columnCount];
 
 		for (int i = 0; i < rowCount; i++) {
