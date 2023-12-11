@@ -57,7 +57,7 @@ public class testMessages extends pageObject {
 			attachFile.click();
 
 			// Set the file path to the clipboard
-			String filePath = "C:\\Users\\admin\\Downloads\\eclipse-workspace\\DesktopGRC\\test-input\\image.png";
+			String filePath = "\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\sample-aadhaar-card.png";
 			StringSelection stringSelection = new StringSelection(filePath);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 			clipboard.setContents(stringSelection, null);
