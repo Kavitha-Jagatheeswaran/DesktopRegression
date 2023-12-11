@@ -31,6 +31,7 @@ public class testRun extends pageObject {
 		data = getExcelData();
 		return data;
 	}
+
 	@BeforeSuite
 //To fetch the data from the excel sheet
 	public String[][] getExcelData() throws IOException, BiffException {
@@ -41,7 +42,7 @@ public class testRun extends pageObject {
 		Sheet sheet = workbook.getSheet("GRC data");
 		int rowCount = sheet.getRows();
 		int columnCount = sheet.getColumns();
- 
+
 		String testData[][] = new String[rowCount][columnCount];
 
 		for (int i = 0; i < rowCount; i++) {
@@ -52,7 +53,7 @@ public class testRun extends pageObject {
 		}
 		System.out.println(testData.toString());
 		return testData;
- 
+
 	}
 
 	public static WebDriver driver;
@@ -73,7 +74,8 @@ public class testRun extends pageObject {
 				 * // Get URL baseClass base = new baseClass(); base.getURL(driver, url, Email,
 				 * password); base.loginSuccess(driver, url, Email, password);
 				 * 
-				 */// Add Organization
+				 */
+			// Add Organization
 			testOrganization newBusiness = new testOrganization();
 			newBusiness.addorganization(driver);
 
@@ -94,7 +96,7 @@ public class testRun extends pageObject {
 			testMessages Messages = new testMessages();
 			Messages.searchMessages(driver);
 			Messages.replyMessages(driver);
-			//Messages.forwardMessages(driver);
+			// Messages.forwardMessages(driver);
 
 			// User Profile update
 			testUserProfile userProfile = new testUserProfile();
@@ -130,12 +132,13 @@ public class testRun extends pageObject {
 
 	@AfterTest
 	public void quite() throws AWTException, EmailException {
-		
-System.out.println("Test completed");
+
+		System.out.println("Test completed");
 	}
-	@AfterSuite 
-	public void quite1()  {
-		System.out.println("Quit");	}
+
+	@AfterSuite
+	public void quite1() {
+		System.out.println("Quit");
+	}
 
 }
- 
