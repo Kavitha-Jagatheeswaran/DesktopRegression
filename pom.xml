@@ -70,14 +70,13 @@
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-	
+
 
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
 			<groupId>org.testng</groupId>
-
 			<artifactId>testng</artifactId>
-			<version>7.4.0</version>
+			<version>7.4.0</version> <!-- Use the latest version available -->
 			<scope>test</scope>
 		</dependency>
 		<dependency>
