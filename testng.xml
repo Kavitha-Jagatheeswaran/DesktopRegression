@@ -3,6 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+      <class name="Vs.DesktopGRCrun.testRun"/>
       <class name="Vs.DesktopGRC.testRun"/>
     </classes>
   </test> <!-- Test -->
