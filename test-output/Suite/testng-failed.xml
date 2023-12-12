@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="Vs.DesktopGRCrun.testRun">
+        <methods>
+          <include name="quite"/>
+          <include name="quite1"/>
+          <include name="openBrowser"/>
+          <include name="GRCRegression"/>
+          <include name="getExcelData"/>
+        </methods>
+      </class> <!-- Vs.DesktopGRCrun.testRun -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
