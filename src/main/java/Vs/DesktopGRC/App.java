@@ -1,27 +1,70 @@
 package Vs.DesktopGRC;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.By;
+import org.apache.commons.mail.EmailException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
 
-public class App {
+import Vs.DesktopGRC.pageObject;
+import Vs.DesktopGRC.testChat;
+import Vs.DesktopGRC.testHome;
+import Vs.DesktopGRC.testLeadCreation;
+import Vs.DesktopGRC.testMessages;
+import Vs.DesktopGRC.testOrganization;
+import Vs.DesktopGRC.testUserProfile;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
+
+public class App extends pageObject {
+	String[][] data = null;
+
+	@DataProvider(name = "itemsdata")
+	public String[][] loginDataProvider() throws IOException, BiffException {
+		data = getExcelData();
+		return data;
+	}
+
+	@BeforeSuite
+//To fetch the data from the excel sheet
+	public String[][] getExcelData() throws IOException, BiffException {
+
+		FileInputStream excel = new FileInputStream(
+				"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\GRC Automation Data.xls");
+		Workbook workbook = Workbook.getWorkbook(excel);
+		Sheet sheet = workbook.getSheet("GRC data");
+		int rowCount = sheet.getRows();
+		int columnCount = sheet.getColumns();
+
+		String testData[][] = new String[rowCount][columnCount];
+
+		for (int i = 0; i < rowCount; i++) {
+			for (int j = 0; j < columnCount; j++) {
+				testData[i][j] = sheet.getCell(j, i).getContents();
+
+			}
+		}
+		System.out.println(testData.toString());
+		return testData;
+
+	}
+
 	public static WebDriver driver;
 
 	@BeforeTest
@@ -30,65 +73,81 @@ public class App {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-
 	}
 
-	@Test
-	public void login() {
-		String excelFilePath = "C:\\Users\\Vakilsearch\\eclipse-workspace\\DesktopGRC\\input\\testInput.xlsx";
-		FileInputStream inputStream = null;
-		Workbook workbook = null;
-		try {
-			inputStream = new FileInputStream(excelFilePath);
-			workbook = new XSSFWorkbook(inputStream);
-			Sheet sheet = workbook.getSheetAt(0);
-			String[] cellValues = new String[3];
-			for (int i = 0; i < 3; i++) {
-				Row row = sheet.getRow(i);
-				if (row != null) {
-					Cell cell = row.getCell(0); // Column A (0-based index)
-					if (cell.getCellType() == CellType.STRING) {
-                        cellValues[i] = cell.getStringCellValue();
-                    } else if (cell.getCellType() == CellType.NUMERIC) {
-                        // Handle numeric cells (e.g., format as a string)
-                        cellValues[i] = String.valueOf(cell.getNumericCellValue());
-                    } else {
-                        cellValues[i] = ""; // Other cell types (blank or formula)
-                    }
-				}
-			}
-			for (int i = 0; i < 3; i++) {
-				driver.get(cellValues[i]);
-				System.out.println("Cell"+(i + 1) +": "+ cellValues[i]);
-				if (i == 2) {
-					WebElement userEmail = driver
-							.findElement(By.xpath("//input[@placeholder='Mobile number or Email']"));
-					userEmail.sendKeys(cellValues[i]);
-				}
-				if (i == 3) {
-					driver.findElement(By.xpath("//button[contains(text(),'Continue')]")).click();
-					WebDriverWait wait = new WebDriverWait(driver, 20); // Wait for a maximum of 20 seconds
-					WebElement userPassword = wait
-							.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='password']")));
-					userPassword.click();
-					userPassword.sendKeys(cellValues[i]);
-					driver.findElement(By.xpath("(//button[contains(text(),'Login')])[1]")).click();
-				}
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (workbook != null) {
-					workbook.close();
-				}
-				if (inputStream != null) {
-					inputStream.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	@Test(dataProvider = "itemsdata")
+
+	public void GRCRegression(String url, String Email, String password) throws Exception {
+		startReport();
+		try {/*
+				 * // Get URL baseClass base = new baseClass(); base.getURL(driver, url, Email,
+				 * password); base.loginSuccess(driver, url, Email, password);
+				 * 
+				 */
+			// Add Organization
+			testOrganization newBusiness = new testOrganization();
+			newBusiness.addorganization(driver);
+
+			// Home Page - All Menu options available
+			testHome Homepage = new testHome();
+			Homepage.Payments(driver);
+			Homepage.Compliance(driver);
+
+			// Lead Creation
+			testLeadCreation LeadCreation = new testLeadCreation();
+			LeadCreation.AllServices(driver);
+			LeadCreation.ServiceCreation(driver);
+
+			// Payment Flow
+			LeadCreation.payNow(driver);
+
+			// Messages Flow
+			testMessages Messages = new testMessages();
+			Messages.searchMessages(driver);
+			Messages.replyMessages(driver);
+			// Messages.forwardMessages(driver);
+
+			// User Profile update
+			testUserProfile userProfile = new testUserProfile();
+			userProfile.viewProfile(driver);
+			userProfile.addEmail(driver);
+			userProfile.addMobileNumber(driver);
+
+			// Chat
+			testChat ChatBot = new testChat();
+			ChatBot.chat(driver);
+
+			/*
+			 * // Logout Flow userProfile.logout(driver);
+			 * 
+			 * // Sign-up Flow testSignup signupFlow = new testSignup();
+			 * signupFlow.signUp(driver);
+			 */
+
+			ExtentTest test = extent.createTest("GRC Execution");
+			test.log(Status.PASS, "GRC Execution Successfully",
+					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
+		} catch (Exception e) {
+			ExtentTest test = extent.createTest("GRC Execution");
+			System.out.println("GRC Execution Failed");
+			Thread.sleep(2000);
+			test.log(Status.FAIL, "GRC Execution Failed" + " \n " + e,
+					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
+			System.out.println(e);
+
 		}
+		stopReport();
+	}
+
+	@AfterTest
+	public void quite() throws AWTException, EmailException {
+
+		System.out.println("Test completed");
+	}
+
+	@AfterSuite
+	public void quite1() {
+		System.out.println("Quit");
 	}
 
 }
