@@ -1,7 +1,6 @@
 package Vs.DesktopGRC;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.Test;
 import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,24 +8,16 @@ import java.io.IOException;
 import org.apache.commons.mail.EmailException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
+
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
-import Vs.DesktopGRC.pageObject;
-import Vs.DesktopGRC.testChat;
-import Vs.DesktopGRC.testHome;
-import Vs.DesktopGRC.testLeadCreation;
-import Vs.DesktopGRC.testMessages;
-import Vs.DesktopGRC.testOrganization;
-import Vs.DesktopGRC.testUserProfile;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -41,7 +32,6 @@ public class testRun extends pageObject {
 		return data;
 	}
 
-	@BeforeSuite
 //To fetch the data from the excel sheet
 	public String[][] getExcelData() throws IOException, BiffException {
 
@@ -79,11 +69,11 @@ public class testRun extends pageObject {
 
 	public void GRCRegression(String url, String Email, String password) throws Exception {
 		startReport();
-		try {/*
-				 * // Get URL baseClass base = new baseClass(); base.getURL(driver, url, Email,
-				 * password); base.loginSuccess(driver, url, Email, password);
-				 * 
-				 */
+		try {
+			baseClass base = new baseClass();
+			base.getURL(driver, url, Email, password);
+			base.loginSuccess(driver, url, Email, password);
+
 			// Add Organization
 			testOrganization newBusiness = new testOrganization();
 			newBusiness.addorganization(driver);
@@ -117,12 +107,12 @@ public class testRun extends pageObject {
 			testChat ChatBot = new testChat();
 			ChatBot.chat(driver);
 
-			/*
-			 * // Logout Flow userProfile.logout(driver);
-			 * 
-			 * // Sign-up Flow testSignup signupFlow = new testSignup();
-			 * signupFlow.signUp(driver);
-			 */
+			// Logout Flow
+			userProfile.logout(driver);
+
+			// Sign-up Flow
+			testSignup signupFlow = new testSignup();
+			signupFlow.signUp(driver);
 
 			ExtentTest test = extent.createTest("GRC Execution");
 			test.log(Status.PASS, "GRC Execution Successfully",
@@ -141,13 +131,8 @@ public class testRun extends pageObject {
 
 	@AfterTest
 	public void quite() throws AWTException, EmailException {
-
+		driver.close();
 		System.out.println("Test completed");
-	}
-
-	@AfterSuite
-	public void quite1() {
-		System.out.println("Quit");
 	}
 
 }
