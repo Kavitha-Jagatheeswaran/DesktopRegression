@@ -1,116 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-12T13:17:00 IST" name="Suite" finished-at="2023-12-12T13:17:01 IST" duration-ms="316">
+  <suite started-at="2023-12-12T13:34:12 IST" name="Default suite" finished-at="2023-12-12T13:34:50 IST" duration-ms="38057">
     <groups>
     </groups>
-    <test started-at="2023-12-12T13:17:00 IST" name="Test" finished-at="2023-12-12T13:17:01 IST" duration-ms="316">
-      <class name="Vs.DesktopGRCrun.testRun">
-        <test-method is-config="true" signature="getExcelData()[pri:0, instance:Vs.DesktopGRCrun.testRun@229c6181]" started-at="2023-12-12T13:17:00 IST" name="getExcelData" finished-at="2023-12-12T13:17:00 IST" duration-ms="113" status="FAIL">
-          <exception class="java.io.FileNotFoundException">
-            <message>
-              <![CDATA[\\14.140.167.188\Vakilsearch\Vakilsearch_Smoke_Testing\Excel\GRC Automation Data.xls (The user name or password is incorrect)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.io.FileNotFoundException: \\14.140.167.188\Vakilsearch\Vakilsearch_Smoke_Testing\Excel\GRC Automation Data.xls (The user name or password is incorrect)
-at java.base/java.io.FileInputStream.open0(Native Method)
-at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
-at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
-at Vs.DesktopGRCrun.testRun.getExcelData(testRun.java:48)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:385)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:321)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:317)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.io.FileNotFoundException -->
+    <test started-at="2023-12-12T13:34:12 IST" name="Default test" finished-at="2023-12-12T13:34:50 IST" duration-ms="38057">
+      <class name="Vs.DesktopGRC.testRun">
+        <test-method is-config="true" signature="getExcelData()[pri:0, instance:Vs.DesktopGRC.testRun@4686afc2]" started-at="2023-12-12T13:34:11 IST" name="getExcelData" finished-at="2023-12-12T13:34:12 IST" duration-ms="181" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getExcelData -->
-        <test-method is-config="true" signature="openBrowser()[pri:0, instance:Vs.DesktopGRCrun.testRun@229c6181]" started-at="2023-12-12T13:17:00 IST" name="openBrowser" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1702367220828" status="SKIP">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:Vs.DesktopGRC.testRun@4686afc2]" started-at="2023-12-12T13:34:12 IST" name="openBrowser" finished-at="2023-12-12T13:34:15 IST" duration-ms="3006" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method signature="GRCRegression(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Vs.DesktopGRCrun.testRun@229c6181]" started-at="2023-12-12T13:17:01 IST" name="GRCRegression" data-provider="itemsdata" finished-at="2023-12-12T13:17:01 IST" duration-ms="0" status="SKIP">
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[java.io.FileNotFoundException: \\14.140.167.188\Vakilsearch\Vakilsearch_Smoke_Testing\Excel\GRC Automation Data.xls (The user name or password is incorrect)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: java.io.FileNotFoundException: \\14.140.167.188\Vakilsearch\Vakilsearch_Smoke_Testing\Excel\GRC Automation Data.xls (The user name or password is incorrect)
-at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:50)
-at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:146)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:798)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:740)
-at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:59)
-at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:38)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:791)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.io.FileNotFoundException: \\14.140.167.188\Vakilsearch\Vakilsearch_Smoke_Testing\Excel\GRC Automation Data.xls (The user name or password is incorrect)
-at java.base/java.io.FileInputStream.open0(Native Method)
-at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
-at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
-at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
-at Vs.DesktopGRCrun.testRun.getExcelData(testRun.java:48)
-at Vs.DesktopGRCrun.testRun.loginDataProvider(testRun.java:40)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:77)
-at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:46)
-... 25 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+        <test-method signature="GRCRegression(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Vs.DesktopGRC.testRun@4686afc2]" started-at="2023-12-12T13:34:15 IST" name="GRCRegression" data-provider="itemsdata" finished-at="2023-12-12T13:34:50 IST" duration-ms="34965" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://qe-grc.vakilsearch.com/grc/login]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[vsautotest_uv_2@gmail.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[000000]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- GRCRegression -->
-        <test-method is-config="true" signature="quite()[pri:0, instance:Vs.DesktopGRCrun.testRun@229c6181]" started-at="2023-12-12T13:17:01 IST" name="quite" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1702367221140" status="SKIP">
+        <test-method is-config="true" signature="quite()[pri:0, instance:Vs.DesktopGRC.testRun@4686afc2]" started-at="2023-12-12T13:34:50 IST" name="quite" finished-at="2023-12-12T13:34:50 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quite -->
-        <test-method is-config="true" signature="quite1()[pri:0, instance:Vs.DesktopGRCrun.testRun@229c6181]" started-at="2023-12-12T13:17:01 IST" name="quite1" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1702367221211" status="SKIP">
+        <test-method is-config="true" signature="quite1()[pri:0, instance:Vs.DesktopGRC.testRun@4686afc2]" started-at="2023-12-12T13:34:50 IST" name="quite1" finished-at="2023-12-12T13:34:50 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quite1 -->
-      </class> <!-- Vs.DesktopGRCrun.testRun -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+      </class> <!-- Vs.DesktopGRC.testRun -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
