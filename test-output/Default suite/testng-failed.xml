@@ -8,7 +8,7 @@
           <include name="quite"/>
           <include name="quite1"/>
           <include name="openBrowser"/>
-          <include name="GRCRegression"/>
+          <include name="GRCRegression" invocation-numbers="0"/>
           <include name="getExcelData"/>
         </methods>
       </class> <!-- Vs.DesktopGRCrun.testRun -->

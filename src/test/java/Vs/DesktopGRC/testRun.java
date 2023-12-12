@@ -1,4 +1,4 @@
-package Vs.DesktopGRCrun;
+package Vs.DesktopGRC;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
@@ -41,7 +41,6 @@ public class testRun extends pageObject {
 		return data;
 	}
 
-	@BeforeSuite
 //To fetch the data from the excel sheet
 	public String[][] getExcelData() throws IOException, BiffException {
 
@@ -79,11 +78,11 @@ public class testRun extends pageObject {
 
 	public void GRCRegression(String url, String Email, String password) throws Exception {
 		startReport();
-		try {/*
-				 * // Get URL baseClass base = new baseClass(); base.getURL(driver, url, Email,
-				 * password); base.loginSuccess(driver, url, Email, password);
-				 * 
-				 */
+		try {
+			baseClass base = new baseClass();
+			base.getURL(driver, url, Email, password);
+			base.loginSuccess(driver, url, Email, password);
+
 			// Add Organization
 			testOrganization newBusiness = new testOrganization();
 			newBusiness.addorganization(driver);
@@ -143,11 +142,6 @@ public class testRun extends pageObject {
 	public void quite() throws AWTException, EmailException {
 
 		System.out.println("Test completed");
-	}
-
-	@AfterSuite
-	public void quite1() {
-		System.out.println("Quit");
 	}
 
 }
