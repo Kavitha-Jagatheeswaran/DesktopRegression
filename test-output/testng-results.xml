@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-12T17:38:38 IST" name="Default suite" finished-at="2023-12-12T17:44:39 IST" duration-ms="360871">
+  <suite started-at="2023-12-18T18:36:48 IST" name="Default suite" finished-at="2023-12-18T18:39:41 IST" duration-ms="173504">
     <groups>
     </groups>
-    <test started-at="2023-12-12T17:38:38 IST" name="Default test" finished-at="2023-12-12T17:44:39 IST" duration-ms="360871">
+    <test started-at="2023-12-18T18:36:48 IST" name="Default test" finished-at="2023-12-18T18:39:41 IST" duration-ms="173504">
       <class name="Vs.DesktopGRC.testRun">
-        <test-method is-config="true" signature="openBrowser()[pri:0, instance:Vs.DesktopGRC.testRun@7b36aa0c]" started-at="2023-12-12T17:38:38 IST" name="openBrowser" finished-at="2023-12-12T17:38:42 IST" duration-ms="3173" status="PASS">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:Vs.DesktopGRC.testRun@7b36aa0c]" started-at="2023-12-18T18:36:48 IST" name="openBrowser" finished-at="2023-12-18T18:36:52 IST" duration-ms="4652" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method signature="GRCRegression(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Vs.DesktopGRC.testRun@7b36aa0c]" started-at="2023-12-12T17:38:42 IST" name="GRCRegression" data-provider="itemsdata" finished-at="2023-12-12T17:44:39 IST" duration-ms="357285" status="PASS">
+        <test-method signature="GRCRegression(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Vs.DesktopGRC.testRun@7b36aa0c]" started-at="2023-12-18T18:36:53 IST" name="GRCRegression" data-provider="itemsdata" finished-at="2023-12-18T18:39:37 IST" duration-ms="163810" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -32,7 +32,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- GRCRegression -->
-        <test-method is-config="true" signature="quite()[pri:0, instance:Vs.DesktopGRC.testRun@7b36aa0c]" started-at="2023-12-12T17:44:39 IST" name="quite" finished-at="2023-12-12T17:44:39 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="quite()[pri:0, instance:Vs.DesktopGRC.testRun@7b36aa0c]" started-at="2023-12-18T18:39:37 IST" name="quite" finished-at="2023-12-18T18:39:41 IST" duration-ms="4392" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quite -->

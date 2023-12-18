@@ -132,6 +132,8 @@ public class testRun extends pageObject {
 	@AfterTest
 	public void quite() throws AWTException, EmailException {
 		driver.close();
+		emailSend email = new emailSend();
+		email.sendMailwithAttachment();
 		System.out.println("Test completed");
 	}
 
