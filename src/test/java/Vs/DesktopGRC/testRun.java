@@ -142,8 +142,8 @@ public class testRun extends pageObject {
 	@AfterTest
 	public void quite() throws AWTException, EmailException, InterruptedException, IOException {
 
-		// emailSend email = new emailSend();
-		// email.sendMailwithAttachment();
+		emailSend email = new emailSend();
+		email.sendMailwithAttachment();
 
 		slack slackReport = new slack();
 		slackReport.slackMessageTest(driver);
