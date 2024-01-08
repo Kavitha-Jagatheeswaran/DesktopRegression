@@ -36,7 +36,7 @@ public class testRun extends pageObject {
 	public String[][] getExcelData() throws IOException, BiffException {
 
 		FileInputStream excel = new FileInputStream(
-				"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\Excel\\GRC Automation Data.xls");
+				"\\\\14.140.167.188\\Vakilsearch\\VakilsearchSmokeTesting\\GRC_automation_data\\Input\\GRC Automation Data.xls");
 		Workbook workbook = Workbook.getWorkbook(excel);
 		Sheet sheet = workbook.getSheet("GRC data");
 		int rowCount = sheet.getRows();
@@ -83,6 +83,14 @@ public class testRun extends pageObject {
 			Homepage.Payments(driver);
 			Homepage.Compliance(driver);
 
+			// Upload Documents
+			testUploadDocs uploadDocs = new testUploadDocs();
+			uploadDocs.uploadDocsPageRedirect(driver);
+			uploadDocs.uploadFiles(driver);
+			uploadDocs.replaceFile(driver);
+			uploadDocs.deleteFile(driver);
+			uploadDocs.languageTranslate(driver);
+
 			// Lead Creation
 			testLeadCreation LeadCreation = new testLeadCreation();
 			LeadCreation.AllServices(driver);
@@ -115,6 +123,7 @@ public class testRun extends pageObject {
 			signupFlow.signUp(driver);
 
 			ExtentTest test = extent.createTest("GRC Execution");
+			Thread.sleep(3000);
 			test.log(Status.PASS, "GRC Execution Successfully",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
@@ -127,14 +136,20 @@ public class testRun extends pageObject {
 
 		}
 		stopReport();
+
 	}
 
 	@AfterTest
-	public void quite() throws AWTException, EmailException {
-		driver.close();
-		emailSend email = new emailSend();
-		email.sendMailwithAttachment();
+	public void quite() throws AWTException, EmailException, InterruptedException, IOException {
+
+		// emailSend email = new emailSend();
+		// email.sendMailwithAttachment();
+
+		slack slackReport = new slack();
+		slackReport.slackMessageTest(driver);
 		System.out.println("Test completed");
+		driver.quit();
+
 	}
 
 }

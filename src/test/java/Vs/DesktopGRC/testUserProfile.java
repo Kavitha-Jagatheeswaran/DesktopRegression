@@ -20,7 +20,7 @@ public class testUserProfile extends pageObject {
 	public void viewProfile(WebDriver driver) throws InterruptedException {
 		Thread.sleep(3000);
 		try {
-			myServices.click();
+			qeAllServices.click();
 			WebDriverWait wait = new WebDriverWait(driver, 50);
 			WebElement profileIconClick = wait.until(ExpectedConditions.elementToBeClickable(profileIcon));
 			profileIconClick.click();
@@ -56,16 +56,15 @@ public class testUserProfile extends pageObject {
 	// Add Email-ID in User Profile
 	public void addEmail(WebDriver driver) throws InterruptedException {
 		Thread.sleep(5000);
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addEmailCTAClick);
-		addEmailCTAClick.click();
-		Thread.sleep(3000);
-		String uniqueUserName = "abcdefghijklmnopqrstuvwxyz";
-		String uniqueEmailID = RandomStringUtils.random(6, uniqueUserName) + "@yopmail.com";
-		enterEmail.sendKeys(uniqueEmailID);
-		sendOTPCTAClick.click();
-		Thread.sleep(6000);
-
 		try {
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", addEmailCTAClick);
+			addEmailCTAClick.click();
+			Thread.sleep(3000);
+			String uniqueUserName = "abcdefghijklmnopqrstuvwxyz";
+			String uniqueEmailID = RandomStringUtils.random(6, uniqueUserName) + "@yopmail.com";
+			enterEmail.sendKeys(uniqueEmailID);
+			sendOTPCTAClick.click();
+			Thread.sleep(6000);
 			emailVerifyNowLink.click();
 			profileOTP.sendKeys("000000");
 			verifyIDCTA.click();
@@ -148,7 +147,6 @@ public class testUserProfile extends pageObject {
 
 	public void logout(WebDriver driver) throws InterruptedException {
 		ExtentTest test = extent.createTest("Logout");
-		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		try {
 			WebElement profileIconClick = wait.until(ExpectedConditions.elementToBeClickable(profileIcon));

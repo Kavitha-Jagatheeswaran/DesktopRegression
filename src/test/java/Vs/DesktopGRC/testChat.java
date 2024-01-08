@@ -15,10 +15,11 @@ public class testChat extends pageObject {
 	ExtentTest test = extent.createTest("Chat");
 	public void chat(WebDriver driver) throws InterruptedException, AWTException {
 		try {
-		Thread.sleep(9000);
+		Thread.sleep(2000);
 		driver.get("https://qe-grc.vakilsearch.com");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		myServices.click();
+		Thread.sleep(2000);		
 		chatBot.click();
 		Thread.sleep(3500);
 		String a = "Testing Purpose";

@@ -83,7 +83,7 @@ public class emailSend {
 			MimeBodyPart messageBodyPart2 = new MimeBodyPart();
 			
 			// Mention the file which you want to send
-			String filename = "\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Report\\Extentreport "+ Date + ".html";
+			String filename = "\\\\14.140.167.188\\Vakilsearch\\VakilsearchSmokeTesting\\GRC_automation_data\\Output\\Report\\Extentreport "+ Date + ".html";
 
 			DataSource source = new FileDataSource(filename);
 

@@ -99,14 +99,12 @@ public class pageObject {
 	@FindBy(xpath = "//input[@placeholder='Search all services']")
 	public static WebElement serviceSearch;
 
-	@FindBy(xpath = "//li[contains(text(),'Online Company Registration')]")
+	@FindBy(xpath = "//li[contains(text(),'Online Name change')]")
 	public static WebElement serviceSelection;
 
-	@FindBy(xpath = "//p[contains(text(),'Get Pvt Ltd now')]")
+	@FindBy(xpath = "(//p[@class=' text-center leading-[20px]'])[3]")
 	public static WebElement getNowCTA;
 
-	@FindBy(xpath = "//p[contains(text(),'Pay') and (@class=' text-center leading-[20px]')]")
-	public static WebElement alreadyLeadCreated;
 
 	@FindBy(xpath = "//p[contains(text(),'Yes, continue')]")
 	public static WebElement yescontinueRadio;
@@ -114,11 +112,20 @@ public class pageObject {
 	@FindBy(xpath = "//button[@class='styles_continue__MQObn']")
 	public static WebElement leadcontinue;
 
-	@FindBy(xpath = "//p[(contains(text(),'Pay')) and (@class=' text-center leading-[20px]')]")
+	@FindBy(xpath = "//button[(contains(text(),'Pay')) and (@class='styles_continue__MQObn')]")
 	public static WebElement payNowCTA;
 
-	// Payment flow
+	
+	//Onboarding bundle payment flow
+	
+	@FindBy(xpath="(//span[contains(text(),'Proceed to pay')])[1]")
+	public static WebElement proceedToPayCTA;
+	
+	@FindBy(xpath="//a[@id='left-tabs-example-tab-card']")
+	public static WebElement leftPaneCardOption;
 
+	// Payment flow
+	
 	@FindBy(xpath = "//input[@name='cardNumber']")
 	public static WebElement CardNumber;
 
@@ -128,7 +135,7 @@ public class pageObject {
 	@FindBy(xpath = "//input[@name='cardCVV']")
 	public static WebElement CardCVV;
 
-	@FindBy(xpath = "//button[(@type='submit') and (@class='payment_page_button_active undefined')]")
+	@FindBy(xpath = "//button[(@type='submit') and (@class='styles_payment_page_button_active__OA822 undefined')]")
 	public static WebElement payAmountCTA;
 
 	@FindBy(xpath = "//input[@type='password']")
@@ -136,6 +143,11 @@ public class pageObject {
 
 	@FindBy(xpath = "//input[@value ='PAY']")
 	public static WebElement payCTA;
+	
+	//Payment success continue
+	
+	@FindBy(xpath = "//button[(contains(text(),'Continue')) and (@class='styles_payment_success_button__bwOX4')]")
+	public static WebElement continueCTA;	
 
 	// Chat flow
 
@@ -288,6 +300,54 @@ public class pageObject {
 
 	@FindBy(xpath = "//button[@class='styles_skipBtn__kZWFU']")
 	public static WebElement busineessAddressSkip;
+	
+	
+	//Upload Documents
+	
+	@FindBy(xpath="//h4[contains(text(),'Online Name change')]")
+	public static WebElement checkStatus;
+	
+	@FindBy(xpath="//img[@alt='upload']")
+	public static WebElement uploadProcessCTA;
+	
+	@FindBy(xpath="(//img[@alt='info'])[1]")
+	public static WebElement photoInfoIconClick;
+	
+	@FindBy(xpath="//button[@class='styles_filled__6NyJe false']")
+	public static WebElement UploadDocsInfoPopup;
+	
+	@FindBy(xpath="(//button[@class='styles_outlined__OU5af false' and contains(text(),'Upload')])[1]")
+	public static WebElement signatureUploadCTA;
+	
+	@FindBy(xpath="//img[@alt='arrow']")
+	public static WebElement arrowIcon;
+	
+	@FindBy(xpath="(//button[contains(text(),'View')])[1]")
+	public static WebElement viewCTA;
+	
+	@FindBy(xpath="//img[@alt='replace']")
+	public static WebElement replaceCTA;
+	
+	@FindBy(xpath="//img[@alt='close']")
+	public static WebElement closeIcon;
+	
+	@FindBy(xpath="//img[@alt='delete']")
+	public static WebElement deleteIcon;
+	
+	@FindBy(xpath="//button[@class='styles_filled__i5Pmj undefined  ']")
+	public static WebElement yesDeleteCTA;
+	
+	@FindBy(xpath="(//div[@class='styles_selectPlaceholder__57214'] //child::img[@alt='language'])[2]")
+	public static WebElement languageDropdown;
+	
+	@FindBy(xpath="//li[contains(text(),'Hindi')]")
+	public static WebElement translateHindi;
+	
+	@FindBy(xpath="//li[contains(text(),'English')]")
+	public static WebElement translateEnglish;
+	
+	@FindBy(xpath="//button[contains(text(),'अपलोड करें')]")
+	public static WebElement hindiContent;
 
 	public void startReport() {
 		LocalDateTime currentDateTime = LocalDateTime.now();
@@ -295,7 +355,7 @@ public class pageObject {
 		
 		String reportFilename = "Extentreport " + currentDateTime.format(formatter);
 		htmlReporter = new ExtentSparkReporter(
-				"\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Report\\"+ reportFilename +".html");
+				"\\\\14.140.167.188\\Vakilsearch\\VakilsearchSmokeTesting\\GRC_automation_data\\Output\\Report\\"+ reportFilename +".html");
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
@@ -313,7 +373,7 @@ public class pageObject {
 			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 			// Define a file path to save the screenshot
-			String screenshotPath = "\\\\14.140.167.188\\Vakilsearch\\Vakilsearch_Smoke_Testing\\GRC_Test_Output\\Screenshot\\"
+			String screenshotPath = "\\\\14.140.167.188\\Vakilsearch\\VakilsearchSmokeTesting\\GRC_automation_data\\Output\\Screenshot\\"
 					+ ssFilename + ".png";
 
 			try {

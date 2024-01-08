@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Vs.DesktopGRCrun.testRun">
+      <class name="Vs.DesktopGRC.testRun">
         <methods>
-          <include name="quite"/>
-          <include name="quite1"/>
           <include name="openBrowser"/>
-          <include name="GRCRegression" invocation-numbers="0"/>
-          <include name="getExcelData"/>
+          <include name="GRCRegression"/>
+          <include name="quite"/>
         </methods>
-      </class> <!-- Vs.DesktopGRCrun.testRun -->
+      </class> <!-- Vs.DesktopGRC.testRun -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
