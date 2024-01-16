@@ -55,9 +55,9 @@ public class testOrganization extends pageObject {
 			System.out.println("New Business added successfully");
 
 		} catch (Exception e) {
-			System.out.println("Unable to add business");
+			System.out.println("Unable to add business " + e);
 			Thread.sleep(2000);
-			test.log(Status.INFO, "Added business",
+			test.log(Status.FAIL, "Unable to add business " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			System.out.println(e);
 

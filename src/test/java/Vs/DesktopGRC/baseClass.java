@@ -35,8 +35,8 @@ public class baseClass extends pageObject {
 				.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
 		catch(Exception e) {
-			System.out.println("Login failed");
-			test.log(Status.FAIL, "Login failed", MediaEntityBuilder
+			System.out.println("Login failed " + e);
+			test.log(Status.FAIL, "Login failed " + e, MediaEntityBuilder
 					.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			System.out.println(e);
 			System.exit(0); 

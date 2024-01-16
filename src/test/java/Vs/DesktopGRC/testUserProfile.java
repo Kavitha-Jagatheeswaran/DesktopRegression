@@ -46,7 +46,7 @@ public class testUserProfile extends pageObject {
 			}
 		} catch (Exception e) {
 			driver.navigate().refresh();
-			System.out.println("User details update failed" + e);
+			System.out.println("User details update failed " + e);
 			test.log(Status.FAIL, "User details update failed " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
@@ -86,9 +86,9 @@ public class testUserProfile extends pageObject {
 
 			}
 		} catch (Exception e) {
-			System.err.println(e.getMessage() + "Added Email ID Missing" + e);
+			System.err.println(e.getMessage() + "Added Email ID Missing " + e);
 			driver.navigate().refresh();
-			test.log(Status.FAIL, "Added Email ID Missing" + e,
+			test.log(Status.FAIL, "Added Email ID Missing " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 
 		}
@@ -138,8 +138,8 @@ public class testUserProfile extends pageObject {
 			}
 		} catch (Exception e) {
 			driver.navigate().refresh();
-			System.out.println("Added Mobile Number Missing" + e);
-			test.log(Status.FAIL, "Added Mobile Number Missing" + e,
+			System.out.println("Added Mobile Number Missing " + e);
+			test.log(Status.FAIL, "Added Mobile Number Missing " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
 	}
@@ -159,9 +159,9 @@ public class testUserProfile extends pageObject {
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
 			driver.navigate().refresh();
-			System.out.println("Profile icon is missing" + e);
+			System.out.println("Profile icon is missing " + e);
 			Thread.sleep(3000);
-			test.log(Status.FAIL, "Profile icon is Missing" + e,
+			test.log(Status.FAIL, "Profile icon is Missing " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
 	}

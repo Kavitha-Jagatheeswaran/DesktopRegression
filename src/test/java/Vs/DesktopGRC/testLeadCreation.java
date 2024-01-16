@@ -48,7 +48,7 @@ public class testLeadCreation extends pageObject {
 			test.log(Status.PASS, "Lead Created successfully",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
-			System.out.println("Already lead has been created" + "\n" + e);
+			System.out.println("Already lead has been created " + "\n" + e);
 			test.log(Status.INFO, "Lead created Already for this business",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			return;
@@ -80,8 +80,8 @@ public class testLeadCreation extends pageObject {
 			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 			continueCTA.click();
 		} catch (Exception e) {
-			System.out.println("Payment Failed" + e);
-			test.log(Status.PASS, "Payment Failed",
+			System.out.println("Payment Failed " + e);
+			test.log(Status.PASS, "Payment Failed" + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			driver.navigate().refresh();
 			return;

@@ -23,7 +23,7 @@ public class testHome extends pageObject {
 			test.log(Status.PASS, "User can able to view the Payment page",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
-			test.log(Status.FAIL, "Unable to access Payment page",
+			test.log(Status.FAIL, "Unable to access Payment page " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
 	}
@@ -34,10 +34,10 @@ public class testHome extends pageObject {
 			WebElement complianceMenu = wait.until(ExpectedConditions.elementToBeClickable(compliancePage));
 			complianceMenu.click();
 			Thread.sleep(3000);
-			test.log(Status.PASS, "User can able to view the compliance calendar page",
+			test.log(Status.PASS, "User can able to view the compliance calendar page ",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
-			test.log(Status.FAIL, "Unable to access Compliance calendar page",
+			test.log(Status.FAIL, "Unable to access Compliance calendar page " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
 
