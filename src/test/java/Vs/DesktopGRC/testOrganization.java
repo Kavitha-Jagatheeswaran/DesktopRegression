@@ -11,7 +11,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
 public class testOrganization extends pageObject {
-	ExtentTest test = extent.createTest("Add Organization");
+	ExtentTest test = extent.createTest("Organization");
 
 	public void addorganization(WebDriver driver) throws InterruptedException {
 		try {
@@ -43,9 +43,10 @@ public class testOrganization extends pageObject {
 			busineessAddressSkip.click();
 			qecontinueCTA.click();
 			Thread.sleep(3000);
+			System.out.println("New Business added successfully");
 			test.log(Status.PASS, "New Business added successfully",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			if ((personalisePopup.isEnabled()) == true) {
 				personalisePopupclose.click();
 			} else {
@@ -60,6 +61,27 @@ public class testOrganization extends pageObject {
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			System.out.println(e);
 
+		}
+	}
+	
+	public void changeOrganization(WebDriver driver) throws InterruptedException {
+		try {
+			Thread.sleep(8000);
+			qeAllServices.click();
+			selectEntityDropdown.click();
+			changePVTOrganization.click();
+			Thread.sleep(3000);
+			System.out.println("Toggled business successfully");
+			test.log(Status.PASS, "Toggled business successfully",
+					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
+			Thread.sleep(1000);
+			
+		}
+		catch(Exception e) {
+			System.out.println("Business toggle is not successfully" + e);
+			test.log(Status.FAIL, "Business toggle is not successfully " + e,
+					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
+			Thread.sleep(1000);
 		}
 	}
 }

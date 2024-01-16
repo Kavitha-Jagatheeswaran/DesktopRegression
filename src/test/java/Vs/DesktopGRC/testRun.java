@@ -75,8 +75,8 @@ public class testRun extends pageObject {
 			base.loginSuccess(driver, url, Email, password);
 
 			// Add Organization
-			testOrganization newBusiness = new testOrganization();
-			newBusiness.addorganization(driver);
+			testOrganization Business = new testOrganization();
+			Business.addorganization(driver);
 
 			// Home Page - All Menu options available
 			testHome Homepage = new testHome();
@@ -90,6 +90,9 @@ public class testRun extends pageObject {
 			uploadDocs.replaceFile(driver);
 			uploadDocs.deleteFile(driver);
 			uploadDocs.languageTranslate(driver);
+
+			// Change new organization to create a new lead
+			Business.changeOrganization(driver);
 
 			// Lead Creation
 			testLeadCreation LeadCreation = new testLeadCreation();

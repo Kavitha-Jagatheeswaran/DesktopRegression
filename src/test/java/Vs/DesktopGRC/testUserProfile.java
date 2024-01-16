@@ -21,7 +21,7 @@ public class testUserProfile extends pageObject {
 		Thread.sleep(3000);
 		try {
 			qeAllServices.click();
-			WebDriverWait wait = new WebDriverWait(driver, 50);
+			WebDriverWait wait = new WebDriverWait(driver, 80);
 			WebElement profileIconClick = wait.until(ExpectedConditions.elementToBeClickable(profileIcon));
 			profileIconClick.click();
 			Thread.sleep(3000);
@@ -46,10 +46,9 @@ public class testUserProfile extends pageObject {
 			}
 		} catch (Exception e) {
 			driver.navigate().refresh();
-			System.out.println("User details update failed");
-			test.log(Status.FAIL, "User details update failed",
+			System.out.println("User details update failed" + e);
+			test.log(Status.FAIL, "User details update failed " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
-			System.out.println(e);
 		}
 	}
 
@@ -87,9 +86,9 @@ public class testUserProfile extends pageObject {
 
 			}
 		} catch (Exception e) {
-			System.err.println(e.getMessage() + "Added Email ID Missing");
+			System.err.println(e.getMessage() + "Added Email ID Missing" + e);
 			driver.navigate().refresh();
-			test.log(Status.FAIL, "Added Email ID Missing",
+			test.log(Status.FAIL, "Added Email ID Missing" + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 
 		}
@@ -139,15 +138,16 @@ public class testUserProfile extends pageObject {
 			}
 		} catch (Exception e) {
 			driver.navigate().refresh();
-			System.out.println("Added Mobile Number Missing");
-			test.log(Status.FAIL, "Added Mobile Number Missing",
+			System.out.println("Added Mobile Number Missing" + e);
+			test.log(Status.FAIL, "Added Mobile Number Missing" + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
 	}
 
 	public void logout(WebDriver driver) throws InterruptedException {
 		ExtentTest test = extent.createTest("Logout");
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 80);
 		try {
 			WebElement profileIconClick = wait.until(ExpectedConditions.elementToBeClickable(profileIcon));
 			profileIconClick.click();
@@ -159,9 +159,9 @@ public class testUserProfile extends pageObject {
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
 			driver.navigate().refresh();
-			System.out.println("Profile icon is missing");
+			System.out.println("Profile icon is missing" + e);
 			Thread.sleep(3000);
-			test.log(Status.FAIL, "Profile icon is Missing",
+			test.log(Status.FAIL, "Profile icon is Missing" + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
 	}

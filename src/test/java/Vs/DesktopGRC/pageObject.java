@@ -151,7 +151,7 @@ public class pageObject {
 
 	// Chat flow
 
-	@FindBy(xpath = "//img[@alt='chat']")
+	@FindBy(xpath = "//div[@id='chat-bot-desktop']")
 	public static WebElement chatBot;
 
 	@FindBy(xpath = "//div[@id='mck-text-box' and @class='mck-blk-8 mck-text-box mck-text required notranslate']")
@@ -194,7 +194,7 @@ public class pageObject {
 	@FindBy(xpath = "//span[contains(text(),'My services')]")
 	public static WebElement myServices;
 
-	@FindBy(xpath = "//img[(@alt='Profile Info') and (@src='/_next/static/media/profile.e4e408d6.svg')]")
+	@FindBy(xpath = "//img[(@alt='Profile Info') and (@src='/_next/static/media/profile.e4e408d6.svg')]/parent::button")
 	public static WebElement profileIcon;
 
 	@FindBy(xpath = "//p[(@class=' text-center leading-[20px]') and (contains(text(),'View Profile'))]")
@@ -300,6 +300,14 @@ public class pageObject {
 
 	@FindBy(xpath = "//button[@class='styles_skipBtn__kZWFU']")
 	public static WebElement busineessAddressSkip;
+	
+	// Change Organization
+	
+	@FindBy(xpath = "//p[contains(text(),'Provisional Private Limited Company (PVT) 2')]")
+	public static WebElement changePVTOrganization;
+	
+	@FindBy(xpath = "//p[contains(text(),'pzDMgtgm Private Limited Company')]")
+	public static WebElement changeOrganization;
 	
 	
 	//Upload Documents
