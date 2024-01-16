@@ -35,8 +35,8 @@ public class testMessages extends pageObject {
 			searchMailListSelection.click();
 			Thread.sleep(6000);
 		} catch (Exception e) {
-			System.out.println("Message search failed");
-			test.log(Status.FAIL, "Message search failed",
+			System.out.println("Message search failed " + e);
+			test.log(Status.FAIL, "Message search failed " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			System.out.println(e);
 		}
@@ -85,8 +85,8 @@ public class testMessages extends pageObject {
 			test.log(Status.PASS, "Message Replied successfully",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
-			System.out.println("Message reply failed");
-			test.log(Status.FAIL, "Message reply failed",
+			System.out.println("Message reply failed " + e);
+			test.log(Status.FAIL, "Message reply failed " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			System.out.println(e);
 		}
@@ -129,8 +129,8 @@ public class testMessages extends pageObject {
 			test.log(Status.PASS, "Message Forwarded successfully",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
-			System.out.println("Message Forward failed");
-			test.log(Status.FAIL, "Message Forward failed",
+			System.out.println("Message Forward failed " + e);
+			test.log(Status.FAIL, "Message Forward failed " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			System.out.println(e);
 		}

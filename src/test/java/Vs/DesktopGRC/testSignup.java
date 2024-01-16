@@ -62,15 +62,15 @@ public class testSignup extends pageObject {
 		qeOTP.sendKeys("000000");
 		Thread.sleep(3000);
 		qeloginCTA.click();
-		System.out.println("User Signup flow successful");
+		System.out.println("User Signup flow successful " + uniqueUserName);
 		Thread.sleep(3000);
-		test.log(Status.PASS, "Signup successfully", MediaEntityBuilder
+		test.log(Status.PASS, "Signup successfully -> " + uniqueUserName, MediaEntityBuilder
 				.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 	}
 		catch(Exception e) {
-			System.out.println("Signup failed");
+			System.out.println("Signup failed " + e);
 			Thread.sleep(3000);
-			test.log(Status.FAIL, "Signup failed", MediaEntityBuilder
+			test.log(Status.FAIL, "Signup failed " + e, MediaEntityBuilder
 					.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			System.out.println(e);
 			driver.navigate().refresh();

@@ -37,9 +37,9 @@ public class testChat extends pageObject {
 			test.log(Status.PASS, "Chat Added Successfully",
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		} catch (Exception e) {
-			System.out.println("Chat feature is not functional" + e);
+			System.out.println("Chat feature is not functional " + e);
 			Thread.sleep(2000);
-			test.log(Status.FAIL, "Chat feature is not functional" + e,
+			test.log(Status.FAIL, "Chat feature is not functional " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 			System.out.println(e);
 			return;

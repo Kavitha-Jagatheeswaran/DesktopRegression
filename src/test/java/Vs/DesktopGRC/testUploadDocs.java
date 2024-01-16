@@ -146,7 +146,7 @@ public class testUploadDocs extends pageObject {
 			viewCTA.click();
 			closeIcon.click();
 		} catch (Exception e) {
-			System.out.println("Document not replaced" + e);
+			System.out.println("Document not replaced " + e);
 			test.log(Status.FAIL, "Document not replaced " + e,
 					MediaEntityBuilder.createScreenCaptureFromPath(pageObject.takeAndSaveScreenshot(driver)).build());
 		}
