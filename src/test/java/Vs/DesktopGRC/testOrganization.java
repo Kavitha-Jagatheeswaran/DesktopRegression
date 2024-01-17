@@ -66,8 +66,9 @@ public class testOrganization extends pageObject {
 	
 	public void changeOrganization(WebDriver driver) throws InterruptedException {
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(6000);
 			qeAllServices.click();
+			Thread.sleep(2000);
 			selectEntityDropdown.click();
 			changePVTOrganization.click();
 			Thread.sleep(3000);
