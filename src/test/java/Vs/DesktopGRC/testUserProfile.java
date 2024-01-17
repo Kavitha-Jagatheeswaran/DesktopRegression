@@ -149,6 +149,8 @@ public class testUserProfile extends pageObject {
 		
 		WebDriverWait wait = new WebDriverWait(driver, 80);
 		try {
+			Thread.sleep(3000);
+			qeAllServices.click();
 			WebElement profileIconClick = wait.until(ExpectedConditions.elementToBeClickable(profileIcon));
 			profileIconClick.click();
 			Thread.sleep(3000);
