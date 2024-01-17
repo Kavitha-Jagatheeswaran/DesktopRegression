@@ -54,7 +54,7 @@ public class slack extends pageObject {
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Next')]"))).click();
 			Thread.sleep(5000);
 			wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("(//div[@class='p-workspace_info__title' and contains(text(),'Vakilsearch')])[2]")))
+					By.xpath("(//div[@class='p-workspace_info__title' and contains(text(),'Vakilsearch')])[1]")))
 					.click();
 			Thread.sleep(5000);
 		} catch (Exception e) {
